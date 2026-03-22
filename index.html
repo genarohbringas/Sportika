@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sportika Woodlands Padel | The Premier Padel Club in The Woodlands, Texas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --black-soft: #111111;
+      --orange: #FF5500;
+      --orange-glow: rgba(255, 85, 0, 0.5);
+      --white: #FFFFFF;
+      --gray: #888888;
+      --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    h1, h2, h3, h4 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.02em; }
+
+    /* ========== NAVBAR ========== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1.25rem 2rem;
+      transition: var(--transition);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar.scrolled {
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    }
+    .logo-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.75rem;
+      line-height: 1.1;
+      letter-spacing: 0.15em;
+    }
+    .logo-text span { font-size: 0.65rem; letter-spacing: 0.25em; opacity: 0.8; }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      transition: var(--transition);
+      opacity: 0.9;
+    }
+    .nav-links a:hover { opacity: 1; color: var(--orange); }
+    .btn-book-nav {
+      background: var(--orange);
+      color: var(--white) !important;
+      padding: 0.6rem 1.5rem;
+      border-radius: 4px;
+      animation: pulse-glow 2s ease-in-out infinite;
+      box-shadow: 0 0 20px var(--orange-glow);
+    }
+    .btn-book-nav:hover {
+      box-shadow: 0 0 35px var(--orange-glow), 0 0 50px rgba(255, 85, 0, 0.3);
+      transform: scale(1.05);
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px var(--orange-glow); }
+      50% { box-shadow: 0 0 35px var(--orange-glow), 0 0 50px rgba(255, 85, 0, 0.3); }
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .hamburger span {
+      width: 28px;
+      height: 2px;
+      background: var(--white);
+      transition: var(--transition);
+    }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+
+    /* ========== HERO ========== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+                  url('images/padel-1.jpg') center/cover no-repeat;
+      overflow: hidden;
+    }
+    .hero-bg-elements {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 900px;
+    }
+    .hero h1 {
+      font-size: clamp(3rem, 10vw, 5.5rem);
+      line-height: 1;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    }
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      opacity: 0.9;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn-primary {
+      background: var(--orange);
+      color: var(--white);
+      padding: 1rem 2.5rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.15em;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 4px 25px var(--orange-glow);
+    }
+    .btn-primary:hover {
+      background: #ff6b1a;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 40px var(--orange-glow);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      padding: 1rem 2.5rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.15em;
+      border: 2px solid var(--white);
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--black);
+      transform: translateY(-3px);
+    }
+    .scroll-arrow {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+    }
+    .scroll-arrow svg { width: 32px; height: 32px; opacity: 0.8; }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(10px); }
+    }
+
+    /* Floating decorative elements */
+    .float-element {
+      position: absolute;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+    .padel-ball {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: 
+        radial-gradient(circle at 20% 25%, rgba(0,0,0,0.15) 1.5px, transparent 1.5px),
+        radial-gradient(circle at 55% 45%, rgba(0,0,0,0.12) 1px, transparent 1px),
+        radial-gradient(circle at 35% 70%, rgba(0,0,0,0.1) 1px, transparent 1px),
+        radial-gradient(circle at 80% 30%, rgba(0,0,0,0.12) 1px, transparent 1px),
+        radial-gradient(circle at 30% 30%, #e8d878, #c49a3a);
+      background-size: 10px 10px, 8px 8px, 6px 6px, 9px 9px, 100% 100%;
+      box-shadow: inset -2px -2px 8px rgba(0,0,0,0.25),
+                  inset 2px 2px 4px rgba(255,255,255,0.15);
+    }
+    .racket-silhouette {
+      width: 60px;
+      height: 100px;
+      background: radial-gradient(ellipse 25px 45px at 50% 50%, rgba(255,255,255,0.2), transparent);
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      transform-origin: bottom center;
+    }
+
+    /* ========== SECTIONS COMMON ========== */
+    section {
+      padding: 7rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .section-title {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.08em;
+    }
+    .section-title-line {
+      width: 80px;
+      height: 4px;
+      background: var(--orange);
+      margin-bottom: 2rem;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========== WHO WE ARE ========== */
+    .who-we-are {
+      background: var(--black-soft);
+    }
+    .who-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .who-text p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 2rem;
+      border-radius: 8px;
+      transition: var(--transition);
+      text-align: center;
+    }
+    .stat-card:hover {
+      border-color: rgba(255, 85, 0, 0.3);
+      transform: translateY(-5px);
+    }
+    .stat-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      color: var(--orange);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      letter-spacing: 0.05em;
+    }
+
+    /* ========== BOOK NOW ========== */
+    .book-now-section {
+      background: linear-gradient(135deg, #FF5500 0%, #cc4400 50%, #0a0a0a 100%);
+      padding: 8rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .book-now-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.5;
+    }
+    .book-now-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .book-now-section .section-title {
+      font-size: clamp(3rem, 7vw, 4.5rem);
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+    .book-subtitle {
+      font-size: 1.2rem;
+      opacity: 0.95;
+      margin-bottom: 2.5rem;
+    }
+    .booking-form {
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      padding: 2.5rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+      opacity: 0.9;
+    }
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      color: var(--white);
+      font-family: inherit;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    .form-group input::placeholder { color: rgba(255,255,255,0.5); }
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(255, 85, 0, 0.2);
+    }
+    .form-group select option { background: var(--black); color: var(--white); }
+    .time-slots {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .time-slot {
+      padding: 0.6rem 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      color: var(--white);
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .time-slot:hover { border-color: var(--orange); background: rgba(255, 85, 0, 0.2); }
+    .time-slot.selected {
+      background: var(--orange);
+      border-color: var(--orange);
+    }
+    .duration-toggle {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .duration-btn {
+      flex: 1;
+      padding: 0.8rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      color: var(--white);
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .duration-btn:hover { border-color: var(--orange); }
+    .duration-btn.selected {
+      background: var(--orange);
+      border-color: var(--orange);
+    }
+    .btn-confirm {
+      width: 100%;
+      padding: 1.2rem 2rem;
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.15em;
+      border: 2px solid var(--black);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 0.5rem;
+    }
+    .btn-confirm:hover {
+      background: var(--white);
+      color: var(--black);
+      border-color: var(--white);
+      transform: translateY(-2px);
+    }
+    .booking-success {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 12px;
+      font-size: 1.2rem;
+      animation: fadeInUp 0.5s ease;
+    }
+    .booking-success.show { display: block; }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .form-error { color: #ff6b6b; font-size: 0.85rem; margin-top: 0.25rem; display: none; }
+    .form-error.show { display: block; }
+    .booking-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 2rem;
+      font-size: 0.95rem;
+      opacity: 0.95;
+    }
+    .booking-info span { display: flex; align-items: center; gap: 0.5rem; }
+
+    /* ========== FACILITIES ========== */
+    .facilities { background: var(--black); }
+    .facilities .section-title { text-align: center; }
+    .facilities .section-title-line { margin-left: auto; margin-right: auto; }
+    .facilities-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    @media (min-width: 1024px) {
+      .facilities-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .facility-card {
+      position: relative;
+      height: 350px;
+      border-radius: 12px;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      transition: var(--transition);
+    }
+    .facility-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+    .facility-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.2) 100%);
+      transition: var(--transition);
+    }
+    .facility-card:hover::before {
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.15) 100%);
+    }
+    .facility-card:hover { border: 2px solid var(--orange); }
+    .facility-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem;
+      z-index: 2;
+    }
+    .facility-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1rem;
+      color: var(--orange);
+    }
+    .facility-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.1em;
+    }
+    .facility-card p {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      line-height: 1.5;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: var(--black);
+      border-top: 3px solid var(--orange);
+      padding: 4rem 2rem 2rem;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.25rem;
+    }
+    .footer-tagline {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .footer-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      opacity: 0.8;
+      transition: var(--transition);
+    }
+    .footer-links a:hover { color: var(--orange); opacity: 1; }
+    .footer-social {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .footer-social a {
+      color: var(--white);
+      opacity: 0.7;
+      transition: var(--transition);
+    }
+    .footer-social a:hover { color: var(--orange); opacity: 1; transform: scale(1.1); }
+    .footer-social svg { width: 24px; height: 24px; }
+    .footer-copy {
+      font-size: 0.8rem;
+      opacity: 0.5;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 280px;
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+        transition: var(--transition);
+      }
+      .nav-links.active { right: 0; }
+      .hamburger { display: flex; }
+      .who-content { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .facilities-grid { grid-template-columns: 1fr; }
+      .facility-card { height: 300px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="#hero" class="logo-text">
+      SPORTIKA<br><span>WOODLANDS PADEL</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#who-we-are">WHO WE ARE</a>
+      <a href="#facilities">FACILITIES</a>
+      <a href="#book-now" class="btn-book-nav">BOOK NOW</a>
+    </div>
+    <div class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-elements" id="heroBgElements"></div>
+    <div class="hero-content">
+      <h1>WHERE PASSION MEETS THE COURT</h1>
+      <p class="hero-subtitle">The premier padel club in Magnolia, Texas</p>
+      <div class="hero-buttons">
+        <a href="#book-now" class="btn-primary">BOOK A COURT →</a>
+        <a href="#who-we-are" class="btn-outline">EXPLORE CLUB</a>
+      </div>
+    </div>
+    <a href="#who-we-are" class="scroll-arrow" aria-label="Scroll down">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+    </a>
+  </section>
+
+  <!-- WHO WE ARE -->
+  <section class="who-we-are" id="who-we-are">
+    <div class="reveal">
+      <h2 class="section-title">WHO WE ARE</h2>
+      <div class="section-title-line"></div>
+      <div class="who-content">
+        <div class="who-text">
+          <p>At Sportika Woodlands Padel, we believe that padel is more than a sport—it's a way of life. Nestled on West Ln in Magnolia, Texas, our club was born from a deep passion for the game and a commitment to building a thriving community of players.</p>
+          <p>Whether you're picking up a racket for the first time or competing at a professional level, our world-class facilities and welcoming atmosphere ensure every visit is unforgettable. Join us and discover why we're the premier padel destination in Texas.</p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number" data-target="6">0</div>
+            <div class="stat-label">Professional Courts</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-target="500" data-suffix="+">0</div>
+            <div class="stat-label">Members</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-target="20" data-suffix="+">0</div>
+            <div class="stat-label">Weekly Classes</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-target="7">0</div>
+            <div class="stat-label">Days Open</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK NOW -->
+  <section class="book-now-section" id="book-now">
+    <div class="book-now-content reveal">
+      <h2 class="section-title">READY TO PLAY?</h2>
+      <p class="book-subtitle">Book your court in seconds</p>
+      
+      <div class="booking-form" id="bookingForm">
+        <form id="reservationForm">
+          <div class="form-group">
+            <label>Choose a court</label>
+            <select name="court" id="court" required>
+              <option value="">Select court...</option>
+              <option value="Court 1">Court 1</option>
+              <option value="Court 2">Court 2</option>
+              <option value="Court 3">Court 3</option>
+              <option value="Court 4">Court 4</option>
+              <option value="Court 5">Court 5</option>
+              <option value="Court 6">Court 6</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" name="date" id="date" required>
+          </div>
+          <div class="form-group">
+            <label>Time slot</label>
+            <div class="time-slots" id="timeSlots"></div>
+            <span class="form-error" id="timeError">Please select a time slot</span>
+          </div>
+          <div class="form-group">
+            <label>Duration</label>
+            <div class="duration-toggle">
+              <button type="button" class="duration-btn" data-duration="1">1hr</button>
+              <button type="button" class="duration-btn selected" data-duration="1.5">1.5hr</button>
+              <button type="button" class="duration-btn" data-duration="2">2hr</button>
+            </div>
+            <input type="hidden" name="duration" id="duration" value="1.5">
+          </div>
+          <div class="form-group">
+            <label>Your name</label>
+            <input type="text" name="name" id="name" placeholder="John Smith" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" id="email" placeholder="john@example.com" required>
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" name="phone" id="phone" placeholder="+1 (832) 000-0000" required>
+          </div>
+          <button type="submit" class="btn-confirm">CONFIRM BOOKING</button>
+        </form>
+      </div>
+      
+      <div class="booking-success" id="bookingSuccess">
+        🎾 Booking confirmed! We'll contact you shortly.
+      </div>
+      
+      <div class="booking-info">
+        <span>📍 West Ln, Magnolia, Texas</span>
+        <span>📞 +1 (832) 000-0000</span>
+        <span>✉ info@sportikawoodlands.com</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FACILITIES -->
+  <section class="facilities" id="facilities">
+    <div class="reveal">
+      <h2 class="section-title">WORLD-CLASS FACILITIES</h2>
+      <div class="section-title-line"></div>
+      <div class="facilities-grid">
+        <div class="facility-card" style="background-image: url('images/padel-1.jpg');">
+          <div class="facility-content">
+            <svg class="facility-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <h3>COURT 1</h3>
+            <p>Professional-grade indoor court with premium lighting and climate control.</p>
+          </div>
+        </div>
+        <div class="facility-card" style="background-image: url('images/padel-2.jpg');">
+          <div class="facility-content">
+            <svg class="facility-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <h3>COURT 2</h3>
+            <p>Identical premium specifications. Perfect for tournaments and group play.</p>
+          </div>
+        </div>
+        <div class="facility-card" style="background-image: url('images/padel-1.jpg');">
+          <div class="facility-content">
+            <svg class="facility-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <h3>COURT 3</h3>
+            <p>Professional-grade court. All courts feature premium lighting and climate control.</p>
+          </div>
+        </div>
+        <div class="facility-card" style="background-image: url('images/padel-2.jpg');">
+          <div class="facility-content">
+            <svg class="facility-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <h3>COURT 4</h3>
+            <p>Premium court with tournament-ready specifications.</p>
+          </div>
+        </div>
+        <div class="facility-card" style="background-image: url('images/padel-1.jpg');">
+          <div class="facility-content">
+            <svg class="facility-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <h3>COURT 5</h3>
+            <p>Professional-grade court. Book for private sessions or group play.</p>
+          </div>
+        </div>
+        <div class="facility-card" style="background-image: url('images/padel-2.jpg');">
+          <div class="facility-content">
+            <svg class="facility-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <h3>COURT 6</h3>
+            <p>Our newest court. Same premium quality across all six courts.</p>
+          </div>
+        </div>
+        <div class="facility-card" style="background-image: url('images/padel-3.jpg');">
+          <div class="facility-content">
+            <svg class="facility-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+            <h3>COACHING</h3>
+            <p>Private and group lessons with certified pros. Improve your game fast.</p>
+          </div>
+        </div>
+        <div class="facility-card" style="background-image: url('images/cafeteria.jpg');">
+          <div class="facility-content">
+            <svg class="facility-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
+            <h3>CLUB LOUNGE</h3>
+            <p>Relax after your match. Refreshments, WiFi, and a welcoming atmosphere.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">SPORTIKA WOODLANDS PADEL</div>
+    <p class="footer-tagline">Where champions are made</p>
+    <div class="footer-links">
+      <a href="#who-we-are">Who We Are</a>
+      <a href="#facilities">Facilities</a>
+      <a href="#book-now">Book Now</a>
+    </div>
+    <div class="footer-social">
+      <a href="#" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <a href="#" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+    </div>
+    <p class="footer-copy">© 2025 Sportika Woodlands Padel. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // ========== NAVBAR SCROLL + HAMBURGER ==========
+    const navbar = document.getElementById('navbar');
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // ========== FLOATING PADEL BALLS & RACKETS (requestAnimationFrame) ==========
+    const heroBg = document.getElementById('heroBgElements');
+    const elements = [];
+    const ballCount = 8;
+    const racketCount = 4;
+
+    function createFloatingElements() {
+      for (let i = 0; i < ballCount; i++) {
+        const ball = document.createElement('div');
+        ball.className = 'float-element padel-ball';
+        ball.style.left = Math.random() * 100 + '%';
+        ball.style.top = Math.random() * 100 + '%';
+        ball.style.width = (25 + Math.random() * 25) + 'px';
+        ball.style.height = ball.style.width;
+        elements.push({
+          el: ball,
+          x: Math.random() * 100,
+          y: Math.random() * 100,
+          vx: (Math.random() - 0.5) * 0.08,
+          vy: (Math.random() - 0.5) * 0.08,
+          rot: Math.random() * 360,
+          rotSpeed: (Math.random() - 0.5) * 0.5,
+          size: 25 + Math.random() * 25
+        });
+        heroBg.appendChild(ball);
+      }
+      for (let i = 0; i < racketCount; i++) {
+        const racket = document.createElement('div');
+        racket.className = 'float-element racket-silhouette';
+        racket.style.left = Math.random() * 100 + '%';
+        racket.style.top = Math.random() * 100 + '%';
+        racket.style.transform = `rotate(${Math.random() * 360}deg)`;
+        elements.push({
+          el: racket,
+          x: Math.random() * 100,
+          y: Math.random() * 100,
+          vx: (Math.random() - 0.5) * 0.05,
+          vy: (Math.random() - 0.5) * 0.05,
+          rot: Math.random() * 360,
+          rotSpeed: (Math.random() - 0.5) * 0.3,
+          isRacket: true
+        });
+        heroBg.appendChild(racket);
+      }
+    }
+    createFloatingElements();
+
+    function animateFloating() {
+      elements.forEach((obj, i) => {
+        obj.x += obj.vx;
+        obj.y += obj.vy;
+        obj.rot += obj.rotSpeed;
+        if (obj.x < 0 || obj.x > 100) obj.vx *= -1;
+        if (obj.y < 0 || obj.y > 100) obj.vy *= -1;
+        obj.x = Math.max(0, Math.min(100, obj.x));
+        obj.y = Math.max(0, Math.min(100, obj.y));
+        obj.el.style.left = obj.x + '%';
+        obj.el.style.top = obj.y + '%';
+        obj.el.style.transform = obj.isRacket 
+          ? `rotate(${obj.rot}deg)` 
+          : `rotate(${obj.rot}deg)`;
+      });
+      requestAnimationFrame(animateFloating);
+    }
+    requestAnimationFrame(animateFloating);
+
+    // ========== SCROLL REVEAL (IntersectionObserver) ==========
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          const stats = entry.target.querySelectorAll('.stat-number');
+          stats.forEach(stat => {
+            if (stat.dataset.animated) return;
+            stat.dataset.animated = 'true';
+            const target = parseInt(stat.dataset.target);
+            const suffix = stat.dataset.suffix || '';
+            const duration = 1500;
+            const start = performance.now();
+            const animate = (now) => {
+              const elapsed = now - start;
+              const progress = Math.min(elapsed / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              stat.textContent = Math.floor(target * eased) + suffix;
+              if (progress < 1) requestAnimationFrame(animate);
+              else stat.textContent = target + suffix;
+            };
+            requestAnimationFrame(animate);
+          });
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Animate hero content on load
+    document.querySelector('.hero-content').style.opacity = '0';
+    document.querySelector('.hero-content').style.transform = 'translateY(30px)';
+    setTimeout(() => {
+      document.querySelector('.hero-content').style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+      document.querySelector('.hero-content').style.opacity = '1';
+      document.querySelector('.hero-content').style.transform = 'translateY(0)';
+    }, 300);
+
+    // ========== TIME SLOTS ==========
+    const timeSlotsContainer = document.getElementById('timeSlots');
+    const slots = ['7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', '9pm', '10pm'];
+    slots.forEach(slot => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'time-slot';
+      btn.textContent = slot;
+      btn.dataset.time = slot;
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.time-slot').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        document.getElementById('timeError').classList.remove('show');
+      });
+      timeSlotsContainer.appendChild(btn);
+    });
+
+    // ========== DURATION TOGGLE ==========
+    document.querySelectorAll('.duration-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.duration-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        document.getElementById('duration').value = btn.dataset.duration;
+      });
+    });
+
+    // ========== FORM VALIDATION & SUBMIT ==========
+    const form = document.getElementById('reservationForm');
+    const successMsg = document.getElementById('bookingSuccess');
+    const timeError = document.getElementById('timeError');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const selectedTime = document.querySelector('.time-slot.selected');
+      if (!selectedTime) {
+        timeError.classList.add('show');
+        return;
+      }
+      timeError.classList.remove('show');
+      const court = document.getElementById('court').value;
+      const date = document.getElementById('date').value;
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      if (!court || !date || !name || !email || !phone) return;
+      
+      document.getElementById('bookingForm').style.display = 'none';
+      successMsg.classList.add('show');
+      successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    // Set min date for date picker
+    const dateInput = document.getElementById('date');
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('min', today);
+  </script>
+</body>
+</html>
