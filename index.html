@@ -50,11 +50,19 @@
     }
     .logo-text {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.75rem;
       line-height: 1.1;
       letter-spacing: 0.15em;
+      color: #FF5500;
+      text-decoration: none;
     }
-    .logo-text span { font-size: 0.65rem; letter-spacing: 0.25em; opacity: 0.8; }
+    .logo-text .logo-main { font-size: 2.5rem; display: block; }
+    .logo-text .logo-sub { font-size: 1.2rem; letter-spacing: 0.25em; }
+    .logo-ball {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 4px;
+      line-height: 1;
+    }
     .nav-links {
       display: flex;
       gap: 2rem;
@@ -117,7 +125,7 @@
       padding: 6rem 2rem 4rem;
       position: relative;
       background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
-                  url('images/padel-1.jpg') center/cover no-repeat;
+                  url('https://images.pexels.com/photos/36246828/pexels-photo-36246828.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat;
       overflow: hidden;
     }
     .hero-bg-elements {
@@ -574,6 +582,9 @@
 
     /* ========== RESPONSIVE ========== */
     @media (max-width: 768px) {
+      .logo-text .logo-main { font-size: 2rem; }
+      .logo-text .logo-sub { font-size: 1rem; }
+      .logo-ball svg { width: 14px; height: 14px; }
       .nav-links {
         position: fixed;
         top: 0;
@@ -600,7 +611,13 @@
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <a href="#hero" class="logo-text">
-      SPORTIKA<br><span>WOODLANDS PADEL</span>
+      <span class="logo-main">SPORTIKA</span>
+      <span class="logo-sub">WOODLANDS PADEL</span><span class="logo-ball" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="9" cy="9" r="8" fill="#C8E63C" stroke="#9bb82d" stroke-width="0.5"/>
+          <path d="M9 2 Q12 9 9 16 M9 2 Q6 9 9 16" stroke="#7a9a24" stroke-width="0.8" stroke-linecap="round" fill="none"/>
+        </svg>
+      </span>
     </a>
     <div class="nav-links" id="navLinks">
       <a href="#who-we-are">WHO WE ARE</a>
@@ -732,56 +749,56 @@
       <h2 class="section-title">WORLD-CLASS FACILITIES</h2>
       <div class="section-title-line"></div>
       <div class="facilities-grid">
-        <div class="facility-card" style="background-image: url('images/padel-1.jpg');">
+        <div class="facility-card" style="background-image: url('https://images.pexels.com/photos/36246828/pexels-photo-36246828.jpeg?auto=compress&cs=tinysrgb&w=800');">
           <div class="facility-content">
             <svg class="facility-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             <h3>COURT 1</h3>
             <p>Professional-grade indoor court with premium lighting and climate control.</p>
           </div>
         </div>
-        <div class="facility-card" style="background-image: url('images/padel-2.jpg');">
+        <div class="facility-card" style="background-image: url('https://images.pexels.com/photos/36227855/pexels-photo-36227855.jpeg?auto=compress&cs=tinysrgb&w=800');">
           <div class="facility-content">
             <svg class="facility-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             <h3>COURT 2</h3>
             <p>Identical premium specifications. Perfect for tournaments and group play.</p>
           </div>
         </div>
-        <div class="facility-card" style="background-image: url('images/padel-1.jpg');">
+        <div class="facility-card" style="background-image: url('https://images.pexels.com/photos/36014317/pexels-photo-36014317.jpeg?auto=compress&cs=tinysrgb&w=800');">
           <div class="facility-content">
             <svg class="facility-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             <h3>COURT 3</h3>
             <p>Professional-grade court. All courts feature premium lighting and climate control.</p>
           </div>
         </div>
-        <div class="facility-card" style="background-image: url('images/padel-2.jpg');">
+        <div class="facility-card" style="background-image: url('https://images.pexels.com/photos/36246827/pexels-photo-36246827.jpeg?auto=compress&cs=tinysrgb&w=800');">
           <div class="facility-content">
             <svg class="facility-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             <h3>COURT 4</h3>
             <p>Premium court with tournament-ready specifications.</p>
           </div>
         </div>
-        <div class="facility-card" style="background-image: url('images/padel-1.jpg');">
+        <div class="facility-card" style="background-image: url('https://images.pexels.com/photos/36227708/pexels-photo-36227708.jpeg?auto=compress&cs=tinysrgb&w=800');">
           <div class="facility-content">
             <svg class="facility-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             <h3>COURT 5</h3>
             <p>Professional-grade court. Book for private sessions or group play.</p>
           </div>
         </div>
-        <div class="facility-card" style="background-image: url('images/padel-2.jpg');">
+        <div class="facility-card" style="background-image: url('https://images.pexels.com/photos/33226056/pexels-photo-33226056.jpeg?auto=compress&cs=tinysrgb&w=800');">
           <div class="facility-content">
             <svg class="facility-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             <h3>COURT 6</h3>
             <p>Our newest court. Same premium quality across all six courts.</p>
           </div>
         </div>
-        <div class="facility-card" style="background-image: url('images/padel-3.jpg');">
+        <div class="facility-card" style="background-image: url('https://images.pexels.com/photos/35248393/pexels-photo-35248393.jpeg?auto=compress&cs=tinysrgb&w=800');">
           <div class="facility-content">
             <svg class="facility-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
             <h3>COACHING</h3>
             <p>Private and group lessons with certified pros. Improve your game fast.</p>
           </div>
         </div>
-        <div class="facility-card" style="background-image: url('images/cafeteria.jpg');">
+        <div class="facility-card" style="background-image: url('https://images.pexels.com/photos/36135824/pexels-photo-36135824.jpeg?auto=compress&cs=tinysrgb&w=800');">
           <div class="facility-content">
             <svg class="facility-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
             <h3>CLUB LOUNGE</h3>
